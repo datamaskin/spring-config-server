@@ -1,0 +1,30 @@
+#The key below is an example of what should be provided on the command line or as an environment variable and is not valid.
+server:
+  port: 8888
+
+logging:
+  level:
+    org.springframework.cloud: 'DEBUG'
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          #uri: i55361@git.iix.com:/git/Configurations.git
+          #uri: https://git.iix.com/git/Configurations.git
+          #          uri: i23735@git.iix.com:/git/Configurations.git
+          #          uri: ssh://git.iix.com:/git/Configurations.git
+          uri: ${GIT_URL}
+          force-pull: true
+          skip-ssl-validation: true
+          #username: i55361
+          #          username: i23735
+          searchPaths: test/{application},test/{application}/{profile}
+          #          ignoreLocalSshSettings: true
+          clone-on-start: false
+          strictHostKeyChecking: false
+#          private-key: ${SSH_KEY}
+#          private-key: |
+#            -----BEGIN RSA PRIVATE KEY-----
+#            -----END RSA PRIVATE KEY-----
